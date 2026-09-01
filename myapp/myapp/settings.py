@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-cjtlrixd(qt=q(6)=o05i5kul-$qhdf--u7fu%58&&d1ze_s%!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -126,6 +126,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     "blog/static/blog/",
 ]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 # Email
