@@ -5,6 +5,7 @@ import logging
 from .models import Post
 from django.http import Http404
 from django.core.paginator import Paginator
+from .forms import ContactForm
 
 # Create your views here.
 # static demo data
@@ -48,3 +49,11 @@ def old_url_redirect(request):
 
 def new_url_view(request):
     return HttpResponse("This is the new URL")
+
+def contact_view(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            logger = logging.getLogger("Testing")
+            logger.debug(f"POST Data is {form.cleaned_data['name']} {form.cleaned_data['email']} {form.cleaned_data['message']}")
+    return render(request, "blog/contact.html")
